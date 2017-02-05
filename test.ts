@@ -29,7 +29,7 @@ interface Map {
 export let map:Map = {}
 
 export function test(user: User) {
-	if (user !== null) {
+	if (user) {
 		let g: UserGroup = user;
 	}
 	map[user.name] = user;
