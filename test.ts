@@ -1,4 +1,4 @@
-interface Options {
+interface User {
 	name: string
 	age: number
 	married?: boolean
@@ -9,7 +9,11 @@ interface Address {
 	city: string
 }
 
-var o: Options = {
+interface UserGroup {
+	name: string
+}
+
+var o: User = {
 	name: "vasya",
 	age: 19,
 	married: false,
@@ -18,9 +22,16 @@ var o: Options = {
 	}
 };
 
+interface Map {
+	[key: string]: User
+}
 
-export function test(o: {
-	name: string
-}) {
-	console.log(o);
+export let map:Map = {}
+
+export function test(user: User) {
+	if (user !== null) {
+		let g: UserGroup = user;
+	}
+	map[user.name] = user;
+	console.log(g);
 }

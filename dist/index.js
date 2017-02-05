@@ -1,7 +1,6 @@
 "use strict";
-const uuid = require("node-uuid");
 const test = require("./test");
-console.log(uuid.v4({}));
+//console.log(uuid.v4({}))
 test.test({
     name: "vasya",
     age: 19,
@@ -10,3 +9,12 @@ test.test({
         city: 'Dnipro'
     }
 });
+test.test({
+    name: "petya",
+    age: 17,
+    married: false,
+    address: {
+        city: 'Dnipro'
+    }
+});
+//console.log(test.map);

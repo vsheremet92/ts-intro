@@ -7,7 +7,12 @@ var o = {
         city: 'Dnipro'
     }
 };
-function test(o) {
-    console.log(o);
+exports.map = {};
+function test(user) {
+    if (user !== null) {
+        let g = user;
+    }
+    exports.map[user.name] = user;
+    console.log(g);
 }
 exports.test = test;
