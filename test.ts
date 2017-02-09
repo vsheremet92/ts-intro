@@ -30,7 +30,7 @@ export let map:Map = {}
 
 export function test(user: User) {
 	if (user) {
-		let g: UserGroup = user;
+		var g: UserGroup = user;
 	}
 	map[user.name] = user;
 	console.log(g);
