@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "outDir": "./dist",
+        "sourceMap": false
+    },
+    "files": [
+        "index.ts",
+        "test.ts",
+        "compile.ts",
+        "cars.ts"
+    ]
+}
