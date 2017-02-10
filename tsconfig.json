@@ -8,6 +8,8 @@
     },
     "files": [
         "index.ts",
-        "test.ts"
+        "test.ts",
+        "compile.ts",
+        "cars.ts"
     ]
 }

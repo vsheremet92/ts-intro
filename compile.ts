@@ -1,6 +1,5 @@
-//import { User } from './test'
-
-interface Car {
+import { fearOfRoads, Taz, bigTruck, Lanoz, CarRole } from './cars'
+export interface Car {
   readonly manufacturer: string
   model: string
   year: number
@@ -8,48 +7,14 @@ interface Car {
   mileage: number
   engineVolume: number
   wasInAccidents: boolean
+  category: CarRole
 }
-
-interface Truck extends Car {
+export interface Truck extends Car {
   isWagon?: boolean
   capacityInTons?: number
 }
-
-var fearOfRoads: Car = {
-  manufacturer: 'Mazda',
-  model: '626',
-  year: 1999,
-  color: 'grey',
-  mileage: 100000,
-  engineVolume: 2.2,
-  wasInAccidents: false
-}
-
-var taz: Car = {
-  manufacturer: 'Vaz',
-  model: '1119',
-  year: 2008,
-  color: 'red',
-  mileage: 30000,
-  engineVolume: 1.6,
-  wasInAccidents: false
-}
-
-
-let bigTruck: Truck = {
-  manufacturer: 'Renault',
-  model: 'Cargo',
-  year: 2008,
-  color: 'white',
-  mileage: 300000,
-  engineVolume: 10,
-  wasInAccidents: false,
-  isWagon: true,
-  capacityInTons: 50
-}
-//  console.log(`Your car is ${parkItem.color} ${parkItem.manufacturer} ${parkItem.model}, made in ${parkItem.year}. The litrage is ${parkItem.engineVolume}, mileage - ${parkItem.mileage}`);
 class CarPark {
-  private arrOfCars: any[] = [];
+  private arrOfCars: Array<Car> = [];
   private name: string;
   constructor(name: string) {
     this.name = name;
@@ -59,13 +24,25 @@ class CarPark {
   }
   log() {
     for (let item of this.arrOfCars) {
-       console.log(`${item.manufacturer} in ${this.name}`);
+       console.log(`${item.manufacturer} ${item.model} in ${this.name}`);
      }
+  }
+  findCarsByRole(category: CarRole) {
+    var sortedCars: any[] = [];
+    for (let item of this.arrOfCars) {
+      if (item.category === category) {
+        sortedCars.push(`${item.manufacturer} ${item.model}`);
+      }
+    }
+    console.log(sortedCars);
   }
 }
 
 let GreatGarage: CarPark = new CarPark("GreatGarage");
 
 GreatGarage.addCar(fearOfRoads);
+GreatGarage.addCar(Taz);
+GreatGarage.addCar(Lanoz);
 GreatGarage.addCar(bigTruck);
+GreatGarage.findCarsByRole(CarRole.Taxi);
 GreatGarage.log();
